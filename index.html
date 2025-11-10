@@ -1,53 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Widhi Praditya | Portofolio</title>
+    <title>Portofolio Modern</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <h1 class="logo">Ahmad<span>Widhi</span></h1>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a class="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#testimonals">Testimonals</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="theme-toggle" id="theme-toggle">🌙</button>
-        </nav>
-    </header>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Hi, I'm <span>Ahmad Widhi Praditya</span></h2>
-            <p>A passionate <strong>Web Developer</strong> creating modern and elegant web</p>
-            <button class="btn" id="view-work">View My Work</button>
+            <h1>Halo, Saya Ahmad Widhi Praditya</h1>
+            <p>Menciptakan pengalaman digital yang menakjubkan</p>
         </div>
     </section>
-    
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skill">
-                <h3>Frontend</h3>
-                <p>HTML, CSS, JavaScript, Taillwind CSS</p>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <div class="about-content fade-in">
+            <div class="about-text">
+                <p>Saya adalah seorang web developer yang passionate dalam menciptakan solusi digital yang inovatif dan user-friendly. Dengan pengalaman dalam berbagai teknologi modern, saya berkomitmen untuk menghasilkan karya berkualitas tinggi.</p>
+                <p>Fokus saya adalah membangun aplikasi web yang tidak hanya fungsional, tetapi juga memberikan pengalaman pengguna yang luar biasa.</p>
             </div>
-            <div class="skill">
-                <h3>Soft Skill</h3>
-                <p>Teamwork and Leadership</p>
+            <div>
+                <h3 style="margin-bottom: 20px;">Keahlian</h3>
+                <div class="skills">
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">C#</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/widhi578" title="GitHub">G</a>
+            <a href="https://www.instagram.com/marcwidhi12?igsh=MW01dmMxc3hmOGZocA==" title="Instagram">I</a>
+        </div>
+        <p>&copy; 2024 Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
