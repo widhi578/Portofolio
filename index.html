@@ -1,66 +1,434 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Modern</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Portofolio Web Developer - Desain modern, interaktif, dan responsif">
+    <title>Widzz Porto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="front-end/css/style.css">
 </head>
-<body>
-    <!-- Background Animation -->
-    <div class="bg-animation">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-    </div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="logo">Portfolio</div>
-        <ul class="nav-links">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#projects">Proyek</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#beranda" class="nav-logo">&lt;Dev /&gt;</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#beranda" class="active">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#proyek">Proyek</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Halo, Saya Ahmad Widhi Praditya</h1>
-            <p>Menciptakan pengalaman digital yang menakjubkan</p>
-        </div>
-    </section>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <a href="#beranda">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#proyek">Proyek</a>
+        <a href="#kontak">Kontak</a>
+    </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>Tentang Saya</h2>
-        <div class="about-content fade-in">
-            <div class="about-text">
-                <p>Saya adalah seorang web developer yang passionate dalam menciptakan solusi digital yang inovatif dan user-friendly. Dengan pengalaman dalam berbagai teknologi modern, saya berkomitmen untuk menghasilkan karya berkualitas tinggi.</p>
-                <p>Fokus saya adalah membangun aplikasi web yang tidak hanya fungsional, tetapi juga memberikan pengalaman pengguna yang luar biasa.</p>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="beranda">
+        <div class="container">
+            <div class="hero-content reveal-left">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Available for new projects
+                </div>
+                <h1 class="hero-title">
+                    <span class="line">Hello, I'm Widhi</span>
+                    <span class="line gradient" id="typingText"></span>
+                    <span class="typing-cursor"></span>
+                </h1>
+                <p class="hero-desc">
+                    I'm a web developer passionate about building beautiful, interactive, and impactful digital experiences. Let's collaborate!
+                </p>
+                <div class="hero-buttons">
+                    <a href="#proyek" class="btn-primary">
+                        <img class="svg-icon" src="front-end/assets/icons/rocket.svg" alt="" aria-hidden="true"> View Projects
+                    </a>
+                    <a href="#kontak" class="btn-secondary">
+                        <img class="svg-icon" src="front-end/assets/icons/mail.svg" alt="" aria-hidden="true"> Contact Me
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Years of Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="10">0</div>
+                        <div class="stat-label">Satisfied Clients</div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3 style="margin-bottom: 20px;">Keahlian</h3>
-                <div class="skills">
-                    <span class="skill-tag">HTML/CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">C#</span>
+            <div class="hero-visual reveal-right">
+                <div class="hero-avatar-wrapper">
+                    <div class="avatar-glow"></div>
+                    <div class="hero-avatar">
+                        <img src="https://res.cloudinary.com/dhxw63xxj/image/upload/v1771213130/Desain_tanpa_judul_gms1wd.png"
+                            alt="Foto Profil Developer">
+                    </div>
+                    <!-- <div class="floating-card card-1">
+                        <div class="icon"><img class="svg-icon" src="front-end/assets/icons/laptop.svg" alt="" aria-hidden="true"></div>
+                        <span>Frontend Dev</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="icon"><img class="svg-icon" src="front-end/assets/icons/palette.svg" alt="" aria-hidden="true"></div>
+                        <span>UI/UX Design</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="icon"><img class="svg-icon" src="front-end/assets/icons/bolt.svg" alt="" aria-hidden="true"></div>
+                        <span>Fast Learner</span>
+                    </div> -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://github.com/widhi578" title="GitHub">G</a>
-            <a href="https://www.instagram.com/marcwidhi12?igsh=MW01dmMxc3hmOGZocA==" title="Instagram">I</a>
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="tentang">
+        <div class="container">
+            <div class="about-image reveal-left">
+                <div class="about-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=500&auto=format&fit=crop"
+                        alt="Workspace Developer">
+                </div>
+                <div class="about-img-decoration"></div>
+            </div>
+            <div class="about-text reveal-right">
+                <div class="section-header" style="text-align: left;">
+                    <span class="section-tag">About me</span>
+                    <h2 class="section-title">Transforming Ideas Into <span class="gradient">Digital Reality</span></h2>
+                </div>
+                <p>
+                    I'm a web developer based in Indonesia. With expertise in HTML, CSS, and JavaScript, I create websites that are not only visually appealing but also provide an exceptional user experience.
+                </p>
+                    exceptional user experience.
+                </p>
+                <p>
+                    I believe that good design is the harmonious combination of aesthetics and functionality. Every pixel and every line of code has a purpose.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-icon"><img class="svg-icon" src="front-end/assets/icons/star.svg" alt="" aria-hidden="true"></span>
+                        <span>Modern Design</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon"><img class="svg-icon" src="front-end/assets/icons/smartphone.svg" alt="" aria-hidden="true"></span>
+                        <span>100% Responsive</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon"><img class="svg-icon" src="front-end/assets/icons/bolt.svg" alt="" aria-hidden="true"></span>
+                        <span>Fast Performance</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon"><img class="svg-icon" src="front-end/assets/icons/code.svg" alt="" aria-hidden="true"></span>
+                        <span>Clean Code</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p>&copy; 2024 Portfolio. All rights reserved.</p>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="skills" id="keahlian">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Skills</span>
+                <h2 class="section-title">Technologies I <span class="gradient">Master</span></h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card reveal" style="transition-delay: 0.1s;">
+                    <div class="skill-icon"><img class="svg-icon" src="front-end/assets/icons/html.svg" alt="" aria-hidden="true"></div>
+                    <h3>HTML5</h3>
+                    <p>Semantic structure and clean markup for a strong web foundation.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-width="95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.2s;">
+                    <div class="skill-icon"><img class="svg-icon" src="front-end/assets/icons/css-3.svg" alt="" aria-hidden="true"></div>
+                    <h3>CSS3</h3>
+                        <p>Modern styling with flexbox, grid, animations, and responsive design.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-width="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.3s;">
+                    <div class="skill-icon"><img class="svg-icon" src="front-end/assets/icons/js.svg" alt="" aria-hidden="true"></div>
+                    <h3>JavaScript</h3>
+                    <p>Dynamic interactivity, DOM manipulation, and programming logic.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-width="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.4s;">
+                    <div class="skill-icon"><img class="svg-icon" src="front-end/assets/icons/c-sharp.svg" alt="" aria-hidden="true"></div>
+                    <h3>C#</h3>
+                    <p>Strongly-typed programming logic for robust application architecture and cross-platform development.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-width="92%"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.5s;">
+                    <div class="skill-icon"><img class="svg-icon" src="front-end/assets/icons/github.svg" alt="" aria-hidden="true"></div>
+                    <h3>Git & GitHub</h3>
+                    <p>Version control and collaboration in project development.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-width="75%"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.6s;">
+                    <div class="skill-icon"><img class="svg-icon" src="front-end/assets/icons/Laravel-Logo.wine.svg" alt="" aria-hidden="true"></div>
+                    <h3>Laravel</h3>
+                    <p>Modern PHP framework for building scalable backends, RESTful APIs, and secure web applications.</p>
+                    <div class="skill-bar">
+                        <div class="skill-bar-fill" data-width="85%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="projects" id="proyek">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Latest <span class="gradient">Projects</span></h2>
+            </div>
+            <div class="project-filters reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Website</button>
+                <!-- <button class="filter-btn" data-filter="ui">UI Design</button> -->
+                <button class="filter-btn" data-filter="landing">Landing Page</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card reveal" data-category="web" style="transition-delay: 0.1s;">
+                    <div class="project-thumbnail">
+                        <img src="https://res.cloudinary.com/dhxw63xxj/image/upload/v1782450110/brave_screenshot_pendataan-mbg-x-rpl.netlify.app_vwzeus.png"
+                            alt="Dashboard Analitik">
+                        <div class="project-overlay">
+                            <button class="overlay-btn" type="button" title="Lihat Detail" aria-label="Lihat Detail"><img class="svg-icon" src="front-end/assets/icons/eye.svg" alt="" aria-hidden="true"></button>
+                            <button class="overlay-btn" type="button" title="Buka Link" aria-label="Buka Link"><img class="svg-icon" src="front-end/assets/icons/link.svg" alt="" aria-hidden="true"></button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>MBG data collection</h3>
+                        <p>Website to record someone who did not consume mbg that day.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-category="ui" style="transition-delay: 0.2s;">
+                    <div class="project-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=600&auto=format&fit=crop"
+                            alt="E-Commerce App">
+                        <div class="project-overlay">
+                            <button class="overlay-btn" type="button" title="Lihat Detail" aria-label="Lihat Detail"><img class="svg-icon" src="front-end/assets/icons/eye.svg" alt="" aria-hidden="true"></button>
+                            <button class="overlay-btn" type="button" title="Buka Link" aria-label="Buka Link"><img class="svg-icon" src="front-end/assets/icons/link.svg" alt="" aria-hidden="true"></button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Toko Online Premium</h3>
+                        <p>Desain UI/UX untuk platform e-commerce fesyen dengan pengalaman belanja yang elegan.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">UI Design</span>
+                            <span class="project-tag">Responsif</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-category="landing" style="transition-delay: 0.3s;">
+                    <div class="project-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop"
+                            alt="SaaS Landing Page">
+                        <div class="project-overlay">
+                            <button class="overlay-btn" type="button" title="Lihat Detail" aria-label="Lihat Detail"><img class="svg-icon" src="front-end/assets/icons/eye.svg" alt="" aria-hidden="true"></button>
+                            <button class="overlay-btn" type="button" title="Buka Link" aria-label="Buka Link"><img class="svg-icon" src="front-end/assets/icons/link.svg" alt="" aria-hidden="true"></button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>SaaS Landing Page</h3>
+                        <p>Landing page konversi tinggi untuk startup teknologi dengan animasi premium.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Landing Page</span>
+                            <span class="project-tag">Animasi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-category="web" style="transition-delay: 0.4s;">
+                    <div class="project-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
+                            alt="Blog Platform">
+                        <div class="project-overlay">
+                            <button class="overlay-btn" type="button" title="Lihat Detail" aria-label="Lihat Detail"><img class="svg-icon" src="front-end/assets/icons/eye.svg" alt="" aria-hidden="true"></button>
+                            <button class="overlay-btn" type="button" title="Buka Link" aria-label="Buka Link"><img class="svg-icon" src="front-end/assets/icons/link.svg" alt="" aria-hidden="true"></button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Blog Platform</h3>
+                        <p>Platform blog modern dengan tampilan minimalis dan sistem navigasi intuitif.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS Grid</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-category="ui" style="transition-delay: 0.5s;">
+                    <div class="project-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=600&auto=format&fit=crop"
+                            alt="Social Media App">
+                        <div class="project-overlay">
+                            <button class="overlay-btn" type="button" title="Lihat Detail" aria-label="Lihat Detail"><img class="svg-icon" src="front-end/assets/icons/eye.svg" alt="" aria-hidden="true"></button>
+                            <button class="overlay-btn" type="button" title="Buka Link" aria-label="Buka Link"><img class="svg-icon" src="front-end/assets/icons/link.svg" alt="" aria-hidden="true"></button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Social Media App</h3>
+                        <p>Desain antarmuka aplikasi media sosial dengan fitur stories dan chat.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">UI/UX</span>
+                            <span class="project-tag">Mobile</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" data-category="landing" style="transition-delay: 0.6s;">
+                    <div class="project-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop"
+                            alt="Portfolio Website">
+                        <div class="project-overlay">
+                            <button class="overlay-btn" type="button" title="Lihat Detail" aria-label="Lihat Detail"><img class="svg-icon" src="front-end/assets/icons/eye.svg" alt="" aria-hidden="true"></button>
+                            <button class="overlay-btn" type="button" title="Buka Link" aria-label="Buka Link"><img class="svg-icon" src="front-end/assets/icons/link.svg" alt="" aria-hidden="true"></button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Portfolio Kreatif</h3>
+                        <p>Website portofolio interaktif dengan scroll animation dan visual menarik.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Animasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="kontak">
+        <div class="container">
+            <div class="contact-info reveal-left">
+                <div class="section-header" style="text-align: left;">
+                    <span class="section-tag">Kontak</span>
+                    <h2 class="section-title">Mari <span class="gradient">Berkolaborasi</span></h2>
+                </div>
+                <p>Punya ide proyek menarik? Atau sekadar ingin menyapa? Jangan ragu untuk menghubungi saya. Saya akan
+                    merespons secepat mungkin!</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><img class="svg-icon" src="front-end/assets/icons/mail.svg" alt="" aria-hidden="true"></div>
+                        <div class="contact-method-text">
+                            <span>Email</span>
+                            <span>widhipraditya@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><img class="svg-icon" src="front-end/assets/icons/pin.svg" alt="" aria-hidden="true"></div>
+                        <div class="contact-method-text">
+                            <span>Lokasi</span>
+                            <span>Jakarta Timur</span>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon"><img class="svg-icon" src="front-end/assets/icons/phone.svg" alt="" aria-hidden="true"></div>
+                        <div class="contact-method-text">
+                            <span>Telepon</span>
+                            <span>+62 858-1063-2983</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrapper reveal-right">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="email@contoh.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subjek</label>
+                        <input type="text" id="subject" placeholder="Tentang apa?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit"><img class="svg-icon" src="front-end/assets/icons/rocket.svg" alt="" aria-hidden="true"> Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Widzz Porto. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="#" class="social-link" title="GitHub" aria-label="GitHub"><img class="svg-icon" src="front-end/assets/icons/github.svg" alt="" aria-hidden="true"></a>
+                <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn"><img class="svg-icon" src="front-end/assets/icons/briefcase.svg" alt="" aria-hidden="true"></a>
+                <a href="#" class="social-link" title="Instagram" aria-label="Instagram"><img class="svg-icon" src="front-end/assets/icons/camera.svg" alt="" aria-hidden="true"></a>
+                <a href="#" class="social-link" title="Twitter" aria-label="Twitter"><img class="svg-icon" src="front-end/assets/icons/twitter.svg" alt="" aria-hidden="true"></a>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas"><img class="svg-icon" src="front-end/assets/icons/arrow-up.svg" alt="" aria-hidden="true"></button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon"><img class="svg-icon" src="front-end/assets/icons/check-circle.svg" alt="" aria-hidden="true"></span>
+        <span id="toastMessage">Pesan berhasil dikirim!</span>
+    </div>
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="front-end/js/main.js"></script>
 </body>
+
 </html>
