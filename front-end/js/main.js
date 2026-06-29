@@ -181,7 +181,7 @@
 
     // ===== TYPING EFFECT =====
     const typingElement = document.getElementById('typingText');
-    const roles = ['Web Developer', 'UI/UX Designer', 'Frontend Coder', 'Problem Solver'];
+    const roles = ['Web Developer', 'Frontend Coder', 'Problem Solver'];
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
